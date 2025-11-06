@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/portfólio/styles.css">
+    <title>LucasMelo | Portfólio</title>
+</head>
+
+<body>
+    <div class="particulas"></div>
+
+
+    <nav class="navegacao">
+        <ul class="menu">
+            <li>
+                <a href="#início" class="menu-link">Início</a>
+            </li>
+            <li>
+                <a href="#sobre" class="menu-link">Sobre</a>
+            </li>
+            <li>
+                <a href="#projetos" class="menu-link">Projetos</a>
+            </li>
+            <li>
+                <a href="#contato" class="menu-link">Contato</a>
+            </li>
+        </ul>
+    </nav>
+
+
+    <main id="início" class="cabecalho">
+
+        <img src="/portfólio/img/lucasimg.jpeg" alt="Foto de Lucas Melo" class="foto-perfil">
+        <h1>Lucas Melo</h1>
+        <p class="cabecalho-sub-titulo">Graduando em Ciência da Computação</p>
+
+    </main>
+
+    <section id="sobre" class="sobre">
+        <h2 class="sobre-titulo">Sobre mim</h2>
+        <div class="sobre-caixa">
+            <p class="sobre-paragrafo">Sou o Lucas Andrade de Melo, um jovem curioso e determinado, sempre em busca de
+                crescimento pessoal e profissional. Atualmente, estou cursando Ciência da Computação, o que tem me
+                proporcionado novos aprendizados e desafios que fortalecem minha capacidade de resolver problemas e
+                criar soluções.
+                Gosto de aprender coisas novas, enfrentar desafios e transformar ideias em algo real. Acredito que cada
+                experiência, por mais simples que pareça, tem algo a ensinar, e procuro sempre tirar o melhor de cada
+                situação.
+                Valorizo a dedicação e a persistência, e acredito que a evolução vem da soma de pequenos esforços
+                diários. Gosto de me cercar de conhecimento, observar como as coisas funcionam e buscar soluções
+                criativas para os problemas que encontro no dia a dia.
+                Além disso, procuro manter uma postura positiva, aprender com os erros e celebrar as conquistas, por
+                menores que sejam.
+                Sou alguém que acredita no poder da curiosidade e da disciplina, e estou sempre aberto a novas
+                oportunidades para crescer, contribuir e fazer a diferença, tanto na vida pessoal quanto na
+                profissional.</p>
+        </div>
+    </section>
+
+    <section id="projetos" class="projetos">
+        <h2 class="projetos-título">Meus projetos</h2>
+        <div class="projetos-caixa">
+
+            <a href="https://open.spotify.com/" target="_blank" class="projetos-card">
+                <img src="/portfólio/img/spotify.png" alt="Em produção" class="projetos-imagem">
+                <div class="caixa-textos-projeto">
+                    <h3 class="info-projetos">Projeto 1</h3>
+                    <p class="paragrafo-projetos">Lorem ipsum dolor sit amet consectetur adipisicing elit. At accusamus
+                        voluptates placeat, delectus neque unde debitis voluptatibus tempore beatae nesciunt distinctio
+                        corporis illum amet? Consequatur doloribus non minus harum voluptatem.</p>
+                </div>
+            </a>
+
+            <a href="https://web.whatsapp.com/" target="_blank" class="projetos-card">
+                <img src="/portfólio/img/whatsapp.png" alt="Em produção" class="projetos-imagem">
+                <div class="caixa-textos-projeto">
+                    <h3 class="info-projetos">Projeto 2</h3>
+                    <p class="paragrafo-projetos">Lorem ipsum dolor sit amet consectetur adipisicing elit. At accusamus
+                        voluptates placeat, delectus neque unde debitis voluptatibus tempore beatae nesciunt distinctio
+                        corporis illum amet? Consequatur doloribus non minus harum voluptatem.</p>
+                </div>
+            </a>
+
+            <div class="projetos-card">
+                <img src="/portfólio/img/process.jpeg" alt="Em produção" class="projetos-imagem">
+                <div class="caixa-textos-projeto">
+                    <h3 class="info-projetos">Projeto 3</h3>
+                    <p class="paragrafo-projetos">Lorem ipsum dolor sit amet consectetur adipisicing elit. At accusamus
+                        voluptates placeat, delectus neque unde debitis voluptatibus tempore beatae nesciunt distinctio
+                        corporis illum amet? Consequatur doloribus non minus harum voluptatem.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="contato" class="contato">
+        <h2 class="contatos-titulo">Entre em contato</h2>
+        <form class="formulario-contato" id="formulario" onsubmit="enviarWhats(event)">
+            <div class="grupo-form">
+                <input placeholder="Nome" class="campo-form" id="nome">
+            </div>
+            <div class="grupo-form">
+                <textarea class="campo-form" placeholder="Digite sua Mensagem" rows="4" id="mensagem"></textarea>
+            </div>
+
+            <button type="submit" class="botao-form">Enviar WhatsApp</button>
+        </form>
+    </section>
+
+
+    <script>
+        function enviarWhats(event) {
+            event.preventDefault()
+
+
+            const nome = document.getElementById('nome').value;
+            const mensagem = document.getElementById('mensagem').value;
+            const telefone = '5511913037565'
+
+            const texto = `Nome: ${nome}\nMensagem: ${mensagem}`
+            const msgFormatada = encodeURIComponent(texto)
+
+            const url = `https://wa.me/${telefone}?text=${msgFormatada}`
+
+            console.log(url)
+
+            window.open(url, '_blank')
+        }
+
+    </script>
+</body>
+
+</html>
