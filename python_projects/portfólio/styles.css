@@ -229,25 +229,121 @@ h1 {
     box-shadow: 0 5px 15px rgba(79, 70, 229, 0.4);
 }
 
-.particulas {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    opacity: 0.5;
-    background: 
-    radial-gradient(circle at 10% 20%, var(--primaria) 0%, transparent 20%),
-    radial-gradient(circle at 90% 80%, var(--secundaria) 0%, transparent 20%), var(--maisEscuro);
+:root{
+  --primaria: #7dd3fc;       /* ajuste cores */
+  --secundaria: #a78bfa;
+  --terciaria: #60a5fa;
+  --maisEscuro: #061026;
+  --duração-lenta: 24s;
+  --duração-media: 14s;
+  --duração-rapida: 9s;
+  --opacidade-geral: 0.55;
+}
+
+/* contêiner base */
+.particulas{
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-color: var(--maisEscuro);
+  overflow: hidden;
+  opacity: var(--opacidade-geral);
+  mix-blend-mode: normal;
+}
+
+/* camada principal usando múltiplos gradientes com animação */
+.particulas::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 10% 20%, color-mix(in srgb, var(--primaria) 80%, transparent) 0%, transparent 18%),
+    radial-gradient(circle at 40% 35%, color-mix(in srgb, var(--terciaria) 85%, transparent) 0%, transparent 16%),
+    radial-gradient(circle at 70% 25%, color-mix(in srgb, var(--secundaria) 80%, transparent) 0%, transparent 20%),
+    radial-gradient(circle at 90% 80%, color-mix(in srgb, var(--primaria) 65%, transparent) 0%, transparent 14%);
+  background-repeat: no-repeat;
+  background-size: 18% 18%, 12% 12%, 15% 15%, 10% 10%;
+  filter: blur(10px) saturate(120%);
+  opacity: 0.95;
+  transform: translateZ(0);
+  animation:
+    moverLento var(--duração-lenta) ease-in-out infinite,
+    pulsar var(--duração-media) ease-in-out infinite;
+  will-change: background-position, opacity, transform;
+}
+
+/* camada intermediária com partículas menores, mais nítidas */
+.particulas::after{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 12% 22%, color-mix(in srgb, var(--primaria) 90%, transparent) 0%, transparent 12%),
+    radial-gradient(circle at 30% 80%, color-mix(in srgb, var(--secundaria) 90%, transparent) 0%, transparent 10%),
+    radial-gradient(circle at 55% 45%, color-mix(in srgb, var(--terciaria) 88%, transparent) 0%, transparent 8%),
+    radial-gradient(circle at 82% 60%, color-mix(in srgb, var(--primaria) 88%, transparent) 0%, transparent 10%);
+  background-repeat: no-repeat;
+  background-size: 6% 6%, 5% 5%, 4% 4%, 5% 5%;
+  mix-blend-mode: screen;
+  opacity: 0.9;
+  filter: blur(2px) saturate(140%);
+  animation:
+    moverMedio var(--duração-media) ease-in-out infinite,
+    flutuar var(--duração-rapida) ease-in-out infinite;
+  will-change: background-position, opacity;
+}
+
+/* animações separadas para camadas e propriedades */
+@keyframes moverLento {
+  0% {
+    background-position: 8% 18%, 38% 36%, 72% 22%, 92% 78%;
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    background-position: 14% 22%, 34% 40%, 68% 28%, 88% 72%;
+    transform: translateY(-3%) scale(1.02);
+  }
+  100% {
+    background-position: 8% 18%, 38% 36%, 72% 22%, 92% 78%;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes moverMedio {
+  0% {
+    background-position: 10% 20%, 32% 82%, 56% 46%, 84% 62%;
+    transform: translateX(0) scale(1);
+    opacity: 0.95;
+  }
+  50% {
+    background-position: 6% 24%, 28% 78%, 60% 42%, 88% 58%;
+    transform: translateX(1.5%) scale(1.04);
+    opacity: 1;
+  }
+  100% {
+    background-position: 10% 20%, 32% 82%, 56% 46%, 84% 62%;
+    transform: translateX(0) scale(1);
+    opacity: 0.95;
+  }
+}
+
+@keyframes pulsar {
+  0% { opacity: 0.92; filter: blur(10px) saturate(120%); }
+  25% { opacity: 0.98; filter: blur(8px) saturate(140%); }
+  50% { opacity: 0.88; filter: blur(11px) saturate(110%); }
+  75% { opacity: 0.96; filter: blur(9px) saturate(130%); }
+  100%{ opacity: 0.92; filter: blur(10px) saturate(120%); }
 }
 
 @keyframes flutuar {
-    0%, 100% {
-        transform: translateY(0);
-    }
+  0% { opacity: 0.88; transform: translateY(0) scale(1); }
+  50% { opacity: 1; transform: translateY(-6px) scale(1.06); }
+  100% { opacity: 0.88; transform: translateY(0) scale(1); }
+}
 
-    50% {
-        transform: translateY(-15px);
-    }
+/* opção para reduzir contraste em telas pequenas */
+@media (max-width: 600px){
+  .particulas::before { filter: blur(12px); background-size: 22% 22%, 16% 16%, 18% 18%, 12% 12%; }
+  .particulas::after  { background-size: 8% 8%, 7% 7%, 6% 6%, 7% 7%; }
 }
