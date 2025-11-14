@@ -1,4 +1,4 @@
-Portfólio — Lucas Andrade de Melo
+# Portfólio — Lucas Andrade de Melo
 
 Este repositório contém o código-fonte do meu portfólio profissional, desenvolvido com o objetivo de apresentar minhas habilidades, projetos e informações relevantes para minha trajetória na área de tecnologia. O site foi construído com foco em organização, clareza, responsividade e boa experiência do usuário.
 
