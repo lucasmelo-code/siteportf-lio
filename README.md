@@ -5,14 +5,14 @@ Portfólio profissional desenvolvido para apresentar minhas habilidades, projeto
 ---
 
 ## 📌 Sumário
-- [Visão Geral](#visão-geral)
-- [Demonstração](#demonstração)
+- [Visão Geral](#visao-geral)
+- [Demonstração](#demonstracao)
 - [Principais Features](#principais-features)
 - [Tecnologias Utilizadas](#tecnologias-utilizadas)
 - [Como Executar Localmente](#como-executar-localmente)
 - [Estrutura do Projeto](#estrutura-do-projeto)
-- [Boas Práticas Aplicadas](#boas-práticas-aplicadas)
-- [Possíveis Melhorias Futuras](#possíveis-melhorias-futuras)
+- [Boas Práticas Aplicadas](#boas-praticas-aplicadas)
+- [Possíveis Melhorias Futuras](#possiveis-melhorias-futuras)
 - [Contato](#contato)
 
 ---
