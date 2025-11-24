@@ -58,7 +58,7 @@ Este projeto foi desenvolvido como parte do meu processo de construção de pres
 O portfólio representa meu compromisso em aprender continuamente, produzir código de qualidade e me preparar para desafios do mercado.
 
 # 📄 Como executar o projeto localmente
-git clone https://github.com/SEU-USUARIO/siteportfolio.git
+git clone https://github.com/lucasmelo-code/siteportfolio.git
 cd siteportfolio
 abra o arquivo index.html no navegador
 
